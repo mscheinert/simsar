@@ -10,7 +10,7 @@ Before answering this question, we need to know the overall extent and the major
 
 ## The Simulation Package
 
-The SImulation Package comprises the aforementioned components:
+The Simulation Package comprises the aforementioned components:
 
 1. The source code (code base and user modifications)
 
@@ -19,6 +19,8 @@ The SImulation Package comprises the aforementioned components:
 3. The run-time environment for a specific simulation (parameters and input)
 
 4. Control output for evaluation
+
+&nbsp;  
 
 
 
@@ -36,9 +38,9 @@ Beside the code base and the code modifications by the user, the **build environ
 
 ### 3. Run-time Environment
 
-Even with the same executable, complete different simulations can be achieved by slightly changing only a few parameters, boundary conditions or the initial state. While the **run-time parameters** (FORTRAN namelists) can be easily documented (they could be even transferred to some Database), **input files** have been neglected somehow. These data files are often hard to handle due to the size of a single file or a voluminous data collection. The size is also often the reason why there is no version control of such files and modifications are not tracked. Unfortunately, this compormises every effort to perform reproducible simulations and thus obstructs comprehensible research.
+Even with the same executable, complete different simulations can be achieved by slightly changing only a few parameters, boundary conditions or the initial state. While the **run-time parameters** (FORTRAN namelists) can be easily documented (they could be even transferred to some Database), **input files** have been neglected somehow. These data files are often hard to handle due to the size of a single file or a voluminous data collection. The size is also often the reason why there is no version control of such files and modifications are not tracked. Unfortunately, this compromises every effort to perform reproducible simulations and thus obstructs comprehensible research.
 
-SIMSAR provides a strategy how to overcome this huddle as lay out in the section [Citable Input Data](inputdata.md). For that purpose, the Simulation Package will contain a file (**`input.ini`**) which lists **all necessary input data** files each with an entry **how to obtain the data** and with the option to attach **references**, **citations** and a **checksums**. This is not a description of the input data as extensive as it is propsed for instance by the [DataCite Metadata Schema](https://support.datacite.org/docs/schema-properties-overview-v41){: target=_blank}, but it provides a first partial compliance with modern data management.
+SIMSAR provides a strategy how to overcome this huddle as laid out in the section [Citable Input Data](inputdata.md). For that purpose, the Simulation Package will contain a file (**`input.ini`**) which lists **all necessary input data** files each with an entry **how to obtain the data** and with the option to attach **references**, **citations** and a **checksums**. This is not a description of the input data as extensive as it is propsed for instance by the [DataCite Metadata Schema](https://support.datacite.org/docs/schema-properties-overview-v41){: target=_blank}, but it provides a first partial compliance with modern data management.
 
 Special attention should be also payed to the **setup** which defines the **output data** written during the run. Not only does this permit the experienced user to learn about what to expect from the output. But the user can also find more information about the structure of the output data if questions or uncertainties emerge during the analysis of the output.
 
@@ -59,7 +61,7 @@ In response to the [question](#question) in the first paragraph, here is an over
 |  3   | run-time environment | FORTRAN namelists, XIOS XML,                                 | README, EXP folder |
 |  4   | evaluation data      | graphics, time series, 2D fields                             | DIAGS/             |
 
-Mot of the meta-data can be gathered using the **`mkReadme`** script provided by SIMSAR. This script is run in the experiment folder and expects little input from the user while the majority is retrieved automatically. See the section [Create the README file with mkReadme](mkReadme.md) for instructions how to invoke the script.
+Mot of the meta-data can be gathered using the **`mkReadme`** script provided by SIMSAR. This script is run in the experiment folder and expects little input from the user while the majority is retrieved automatically. See the section [Create the README file with mkReadme](mkReadme.md) for instructions how to invoke the script or click on the button below.
 
 &nbsp;
 
