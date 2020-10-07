@@ -1,16 +1,82 @@
 # Bundle up
 
+Everything is ready to bundle up? Here is a short checklist:
+
+!!! warning ""
+    * [x] Your **experiment folder** is complete, clean and ready.
+    * [x] **README.md** is ready in the experiment folder.
+    * [x] **input.ini** is present and lists all necessary files.
+    * [x] Local **git client** is installed (`git --version`)
+    * [ ] You have access to a git remote server (maybe also to some group namespace)
+    * [ ] ...
+
+The next step depends on whether your local NEMO worktree/repository is already under git control or not, though it might be under subversion control :
+
+<center>[(A) NEMO tree NOT under git control](#a-nemo-tree-not-under-git-control){: .md-button .md-button--primary }<br>or</center>
+
+<center>[(B) NEMO tree already under git control](#b-nemo-tree-already-under-git-control){: .md-button .md-button--primary }</center>
+
+------
 
 
 
-## WARNING!
+## (A) NEMO tree **NOT** under git control
+
+You are lucky! This is the easiest case. It is more or less the same procedurelike putting an existing directory under git control and push it to some remote repository.
+
+!!! info "Example Environment"
+	`$WORK`: Shell variable which holds the path to some scratch disk, where NEMO was checked out.
+
+### () Create CONF-CASE folder
+
+### () Initialize git
+
+
+
+```bash
+cd $WORK/NEMO/release-4.0/cfgs/MyCfg/
+git init
+```
+
+
+
+### () Branching Off
+
+
+
+### () Add Ignore Patterns
+
+!!! tldr ".gitignore"
+	```
+	**/*.bak
+	**/*.bak
+	**/*.bak
+	```
+
+### () Add Files
+!!! tldr ""
+
+	### () Commit
+
+
+
+### () Push to remote
+
+
+
+
+
+## (B) NEMO tree already under git control
+
+
+### WARNING!
 
 This recipe is highly preliminary and should be used with causion. It was originally developed for a NEMO repository under git control. 
 
 **Please, backup your files and commit all necessary changes BEFORE you invoke any of the commands below!**
 
 
-## Environment
+### Environment
 
 ```bash
 # in NEMOGCM repository/worktree
@@ -27,7 +93,7 @@ DSTMP=$(mktemp -d)
 ```
 
 
-### 1. Prepare for Export
+#### 1. Prepare for Export
 
 ```bash
 cd CONFIG/${CONFIG}
@@ -48,7 +114,7 @@ for zEXP in ${EXP[@]}; do
 
 
 
-### 2. List unwanted folders
+#### 2. List unwanted folders
 
 remove unwanted folders (all folders except for MY_SRC, the default EXP00 and the actual experiment folder):
 
@@ -64,7 +130,7 @@ remove unwanted folders (all folders except for MY_SRC, the default EXP00 and th
 
 
 
-### 3. Delete unwanted folders
+#### 3. Delete unwanted folders
 
 > Example from [stackoverflow](https://stackoverflow.com/a/32886427): To remove `DIRECTORY_NAME` completely (also from history)
 >
@@ -117,7 +183,7 @@ Using a loop over list of unwanted folders (based on the solution above):
 
 
 
-### 5. Replace EXP00 with actual experiment setup
+#### 5. Replace EXP00 with actual experiment setup
 
 ```bash
     rm -rf EXP00
@@ -134,7 +200,7 @@ Using a loop over list of unwanted folders (based on the solution above):
 
 
 
-### 6. clone or create new CONF-CASE Project
+#### 6. clone or create new CONF-CASE Project
 
 -----
 
@@ -188,7 +254,7 @@ Obsolete:
 
 
 
-### 7. Clean up
+#### 7. Clean up
 
 ```bash
     cd $OWD

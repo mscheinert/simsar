@@ -1815,7 +1815,7 @@ def prep_note():
         print("\n")
         hr()
         print("\n")
-        center("Prepare DRAKKARshare upload")
+        center("Prepare NEMO Simulation Upload with SIMSAR")
         print("\n")
         hr()
         print("\n\n Before we begin, we have to make sure, that the following " + ULINE + "conditions are fulfilled" + NORMAL + " and you have the " + ULINE + "essential information" + NORMAL + " at hand right now:")

@@ -76,7 +76,8 @@ markdown_extensions:
       guess_lang: false
   - pymdownx.details
   - pymdownx.superfences
-  - pymdownx.tasklist
+  - pymdownx.tasklist:
+      custom_checkbox: true
   - pymdownx.emoji
   - pymdownx.tabbed
   - pymdownx.critic

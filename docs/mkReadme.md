@@ -9,7 +9,7 @@
 !!! tip "Experiment Folder"
     Please, be aware, that currently **mkReadme** expects you to be wihtin the NEMO repository tree.
     If your **experiment folder** is outside of e.g. `NEMO/cfgs/WhateverConfig/YourEXP`, please consider
-    finding a work-around by e.g. copying the necessary files temporarily into the NEMO rpository tree 
+    finding a work-around by e.g. copying the necessary files temporarily into the NEMO repository tree 
     (no need to copy the huge input data files, `input.ini` will be sufficient).
 ​    
 
