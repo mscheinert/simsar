@@ -51,7 +51,7 @@ cd ~/NEMO/release-4.0/cfgs/My_Config/MyExp1
 
 ### 1.1 List input data files
 
-First, we need a list of the **required input data files** for your simulation together with some detailed meta-data, like sources, references and check-sums. SIMSAR expects this list in a special file, the **`input.def`** file. If this file does not exists yet, **please create it**. 
+First, we need a list of the **required input data files** for your simulation together with some detailed meta-data, like sources, references and check-sums. SIMSAR expects this list in a special file, the **`input.ini`** file. If this file does not exists yet, **please create it**. 
 
 You'll find more information about the file format and how to create it in the "**Citable Input Data**" section of this guide or follow these buttons for further details:
 
