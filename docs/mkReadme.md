@@ -13,7 +13,7 @@
     (no need to copy the huge input data files, `input.ini` will be sufficient).
 ​    
 
-1. Go into your experiment folder.
+1. Go into the folder of the exxperiment you want to publish.
 2. Run **`mkReadme`** and provide input when asked :
    1. Confirm with >**y**<  when you're ready and prepared (see list on the screen)
    2. The ascertained name of the configuration and experiment are printed on screen for controlling purposes only
