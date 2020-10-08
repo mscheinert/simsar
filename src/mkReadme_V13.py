@@ -364,7 +364,8 @@ def check_gitorsvn():
     global repo
 
     try:
-        repo = git.Repo(".", search_parent_directories=True)
+        #MMS repo = git.Repo(".", search_parent_directories=True)
+        repo = git.Repo("../../", search_parent_directories=True)
     except git.InvalidGitRepositoryError:
         print(BLUE + "This is not a git repo \n" + NORMAL)
         
@@ -375,7 +376,8 @@ def check_gitorsvn():
         
     if (LNGIT == False):
         try:
-           repo = subprocess.check_output("svn info | awk '/^Kind:/ {print $2}'", shell=True).strip()
+           #repo = subprocess.check_output("svn info | awk '/^Kind:/ {print $2}'", shell=True).strip()
+           repo = subprocess.check_output("LC_ALL=C svn info | awk '/^Kind:/ {print $2}'", shell=True).strip()
         except svn.exception.SvnException:
             print(BLUE + "This is not an svn repo \n" + NORMAL)
         except OSError as e:
@@ -564,8 +566,8 @@ def get_currepo():
     if(LNSVN == True):
         try:
             #MMS default = subprocess.check_output("svn info | awk '/^URL:/ {print $2}'", shell=True).strip()
-            default = subprocess.check_output("svn info --show-item url", shell=True).strip()
-            revision = subprocess.check_output("svn info --show-item revision", shell=True).strip().decode().replace("'", "")
+            default = subprocess.check_output("LC_ALL=C svn info --show-item url", shell=True).strip()
+            revision = subprocess.check_output("LC_ALL=C svn info --show-item revision", shell=True).strip().decode().replace("'", "")
             #convert to string
             default = str(default)
             default = default.replace("'", "")
@@ -601,7 +603,7 @@ def get_nemorepo():
     if(LNSVN==True):
         #command = '--grep="jussieu" --pretty=oneline --abbrev-commit --reverse | cut -d ' ' -f 3 |head -n 1'
         #MMS getURLsvn = subprocess.check_output("svn info | awk '/^URL:/ {print $2}'", shell=True).strip()
-        getURLsvn = subprocess.check_output("svn info --show-item url $(svn info --show-item wc-root)", shell=True).strip()
+        getURLsvn = subprocess.check_output("LC_ALL=C svn info --show-item url $(LC_ALL=C svn info --show-item wc-root)", shell=True).strip()
         getURLsvn = str(getURLsvn)
         getURLsvn = getURLsvn.replace("'", "")
         print(PURPLE + ""+ str(getURLsvn[1:]) + "" + NORMAL)
@@ -631,7 +633,7 @@ def get_nemorevision():
     if(LNSVN==True):
         try:
             #MMS nemoRev = subprocess.check_output("svn info | awk '/^Revision:/ {print $2}'", shell=True).strip()
-            nemoRev = subprocess.check_output("svn info --show-item revision $(svn info --show-item wc-root)", shell=True).strip()
+            nemoRev = subprocess.check_output("LC_ALL=C svn info --show-item revision $(LC_ALL=C svn info --show-item wc-root)", shell=True).strip()
             nemoRev = str(nemoRev)
             nemoRev = nemoRev.replace("'", "")
             print(PURPLE + str(nemoRev[1:]) + NORMAL)
@@ -654,7 +656,7 @@ def get_branch():
     
     if (LNSVN==True):
         #MMS getBranchInfo = subprocess.check_output("svn info | awk '/^URL:/ {print $2}'", shell=True).strip()
-        getBranchInfo = subprocess.check_output("svn info --show-item url $(svn info --show-item wc-root)", shell=True).strip()
+        getBranchInfo = subprocess.check_output("LC_ALL=C svn info --show-item url $(LC_ALL=C svn info --show-item wc-root)", shell=True).strip()
         getBranch = str(getBranchInfo)
         branchSplit = getBranch.split('/')
         #MMS branchSplit = getBranch.split('NEMO')
