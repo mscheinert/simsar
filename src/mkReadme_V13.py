@@ -198,6 +198,7 @@ def chooseConfigFolder():
             #print("Invalid entry, input has to match exactly (including capital letters)")
     path = os.getcwd()
     exp = path.split("/")[-2]
+    run = path.split("/")[-1]
     #:MMS}
             
 def checkScriptLocation():
@@ -397,12 +398,13 @@ def get_confname():
     
 def get_expname():
     '''Returns the name of the current experiment folder'''
+    global run
     #print("\n --> Control print of the current Experiment name (current folder):\n\n")
     currentDirectory = os.getcwd()
-    caseName = os.path.basename(currentDirectory)
+    run = os.path.basename(currentDirectory)
     
-    print(PURPLE+"Experiment's name: "+caseName+""+NORMAL)
-    return caseName
+    print(PURPLE+"Experiment's name: "+run+""+NORMAL)
+    return run
 
 def get_username():
     '''This function returns the username, if available in the config file '''
@@ -1984,20 +1986,22 @@ Note: *origin/HEAD* in the output listing is not a branch in its own but points 
     pathS = pathlib.Path().absolute()
 
     #MMS:{
+    RUN="-"+run
     #if (LNGIT==True) and (CURRCONFIG==False):
-        #READMEOUT = str(pathS) + "/CONFIG/" + exp + "/README_"+exp+".md"
+        #READMEOUT = str(pathS) + "/CONFIG/" + exp + "/README_"+exp+RUN+".md"
        
     #elif (LNSVN==True) and (CURRCONFIG==False) and (release3 == True):
-        #READMEOUT = str(pathS) + "/NEMOGCM/CONFIG/" + exp +  "/README_"+exp+".md"
+        #READMEOUT = str(pathS) + "/NEMOGCM/CONFIG/" + exp +  "/README_"+exp+RUN+".md"
         
     #elif (LNSVN==True) and (CURRCONFIG==False) and (release4 == True):
-        #READMEOUT = str(pathS) + "/cfgs/" + exp  +  "/README_"+exp+".md"
+        #READMEOUT = str(pathS) + "/cfgs/" + exp  +  "/README_"+exp+RUN+".md"
         
     ##if current script is stored in one of the configurations
     #elif (CURRCONFIG == True):
-        #READMEOUT = str(pathS) + "/README_"+exp+".md"
+        #READMEOUT = str(pathS) + "/README_"+exp+RUN+".md"
     ##MMS-------------------------
-    READMEOUT = str(pathS) + "/README_"+exp+".md"
+    #READMEOUT = str(pathS) + "/README_"+exp+RUN+".md"
+    READMEOUT = str(pathS) + "/README.md"
     #:MMS}
     
     with open(READMEOUT, "w") as f:
@@ -2038,6 +2042,8 @@ if scriptLoc != None:
     exp = scriptLoc
 else:
     exp=""
+#MMS run : variable holding the experiment's name.
+run=""
 
 getNemoConfig()
 
