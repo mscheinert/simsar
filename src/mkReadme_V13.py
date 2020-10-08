@@ -723,7 +723,7 @@ def get_components():
             #:MMS}
     #MMS:{
     comp = ''.join([str(elem) for elem in output])
-    f = open("./exp_cfg.txt", "w")
+    f = open("../exp_cfg.txt", "w")
     f.write("{}  {}".format(exp,comp.replace(',','')))
     f.close
     
@@ -1952,7 +1952,7 @@ Within NEMOGCM directory:
 ~~~bash
 cd $WORK/NEMO-release-4.0
 git remote add -f remote_{{_CONFNAME_}}-{{_EXPNAME_}} git@{{_zGITSERVER_}}:{{_zGITNMSPC_}}/{{_CONFNAME_}}-{{_EXPNAME_}}.git   # add remote
-git subtree add --prefix CONFIG/{{_CONFNAME_}}-{{_EXPNAME_}} remote_{{_CONFNAME_}}-{{_EXPNAME_}} {{_NEMOBRANCH_}}:-master --squash     # donwload master branch into sub-folder
+git subtree add --prefix CONFIG/{{_CONFNAME_}}-{{_EXPNAME_}} remote_{{_CONFNAME_}}-{{_EXPNAME_}} {{_NEMOBRANCH_}} --squash     # donwload master branch into sub-folder
 cat cfgs/{{_CONFNAME_}}-{{_EXPNAME_}}/{{_EXPNAME_}}/exp_cfg.txt >> cfgs/work_cfgs.txt
 ~~~
 
@@ -1962,7 +1962,7 @@ Or even shorter, without keeping remote source information (not recommended):
 
 ~~~bash
 cd $WORK/NEMO-release-4.0
-git subtree add --prefix cfgs/{{_CONFNAME_}}-{{_EXPNAME_}} git@{{_zGITSERVER_}}:{{_zGITNMSPC_}}/{{_CONFNAME_}}-{{_EXPNAME_}}.git {{_NEMOBRANCH_}}:-master --squash
+git subtree add --prefix cfgs/{{_CONFNAME_}}-{{_EXPNAME_}} git@{{_zGITSERVER_}}:{{_zGITNMSPC_}}/{{_CONFNAME_}}-{{_EXPNAME_}}.git {{_NEMOBRANCH_}} --squash
 cat cfgs/{{_CONFNAME_}}-{{_EXPNAME_}}/{{_EXPNAME_}}/exp_cfg.txt >> cfgs/work_cfgs.txt
 ~~~
 
